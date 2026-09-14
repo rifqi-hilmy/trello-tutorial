@@ -1,13 +1,11 @@
 "use server";
 
-import { auth } from "@clerk/nextjs";
-import { revalidatePath } from "next/cache";
-
-import { db } from "@/lib/db";
-
-import { InputType } from "./types";
-import { createSafeAction } from "@/lib/create-safe-action";
 import { CreateBoard } from "./schema";
+import { InputType } from "./types";
+import { auth } from "@clerk/nextjs";
+import { createSafeAction } from "@/lib/create-safe-action";
+import { db } from "@/lib/db";
+import { revalidatePath } from "next/cache";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
   const { userId } = auth();
